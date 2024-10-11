@@ -1,0 +1,16 @@
+{
+  "name": "scania-ctf",
+  "version": "0.0.1",
+  "description": "CTF challanges ",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kristian Alvarez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
