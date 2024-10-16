@@ -1,0 +1,29 @@
+<script>
+    function testFlag() {
+        const input = document.getElementById('submitted-flag').value;
+        digestMessage(input).then((digest) => 
+            digest === "6432444c6c36f0202a342a68233b23673519edd1131b07ac8a716b02ab1a00be" ?
+            alert("You found the flag!") : alert("Wrong flag!")
+        );
+    }
+    async function digestMessage(message) {
+        const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8); // hash the message
+        const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+        const hashHex = hashArray
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join(""); // convert bytes to hex string
+        return hashHex;
+    }
+</script>
+<header>
+    <h1>
+        &gt; Crypto[0]
+    </h1>
+</header>
+<main>
+    <p>You have managed to come accross the following "encrypted" message. See if you can decrypt it. </p> 
+    <div class="code-box">MTEwMDExMCAxMTAxMTAwIDExMDAwMDEgMTEwMDExMSAxMTExMDExIDExMDAxMDEgMTEwMTExMCAxMTAwMDExIDExMDExMTEgMTEwMDEwMCAxMTAxMDAxIDExMDExMTAgMTEwMDExMSAxMDExMTExIDExMDEwMDEgMTExMDAxMSAxMDExMTExIDExMDExMTAgMTEwMTExMSAxMTEwMTAwIDEwMTExMTEgMTEwMDEwMSAxMTAxMTEwIDExMDAwMTEgMTExMDAxMCAxMTExMDAxIDExMTAwMDAgMTExMDEwMCAxMTAxMDAxIDExMDExMTEgMTEwMTExMCAxMTExMTAx</div>
+    <div class="submission" hx-get="../submission.html" hx-trigger="load">
+    </div>
+</main>

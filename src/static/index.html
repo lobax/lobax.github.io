@@ -7,15 +7,23 @@
         <title>Scania CTF</title>
     </head>
     <body>
-        <div id="banner">
-            <div id="title">#CTF</div>
-            <div id="menu">
-            <a hx-get="/c01.html" hx-target="#content">C01</a>
-            <a hx-get="/p01.html" hx-target="#content">P01</a>
-            </div>
+        <div id="banner" hx-get="banner.html" hx-trigger="load">
         </div>
         <div id="content">
-            Test
+            <header>
+                <h1>
+                &gt; ~
+                </h1>
+            </header>
+            <main>
+                <p>
+                    This is a entry level Capture The Flag with some fun, simple challenges.  
+                </p>
+                <p>
+                    This CTF is hosted as a set of fully static pages, meaning there is no backend to hack and no leaderboards.
+                    Keeping track of progress (and saving any flags you find) is up to you!
+                </p>
+            </main>
         </div>
     </body>
 </html>
