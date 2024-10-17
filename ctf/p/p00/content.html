@@ -1,7 +1,13 @@
+<script>
+    function testFlag() {
+        const input = document.getElementById('submitted-flag').value;
+        input === "flag{client_side_secrets_are_bad}") ?
+        alert("You found the flag!") : alert("Wrong flag!");
+    }
+
+</script>
 <header>Passwords</header>
 <main>
     <p>See if you can break in!</p> 
-    <div class="submission">
-        <input></input><button>Submit</button>
-    </div>
+    <div class="submission" hx-get="/ctf/submission.html" hx-trigger="load">
 </main>
