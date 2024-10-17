@@ -1,0 +1,36 @@
+<script type="text/javascript" src="/crypto/md4.js"></script>
+<script>
+    function testFlag() {
+        const input = document.getElementById('submitted-flag').value;
+        digestMessage(input).then((digest) => 
+            digest === "f8dc25c4038b938b79ea51a0240c458c83a7ffb5c9e37d3c928f7ac863c5f0e5" ? 
+            alert("You found the flag!") : alert("Wrong flag!")
+        );
+    }
+    async function digestMessage(message) {
+        const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", msgUint8); // hash the message
+        const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+        const hashHex = hashArray
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join(""); // convert bytes to hex string
+        return hashHex;
+    }
+</script>
+<header>
+    <h1>
+        &gt; Passwords[1]
+    </h1>
+</header>
+<main>
+    <p>You have come across the following <a href="https://en.wikipedia.org/wiki/MD4">MD4</a> hash of a password:</p>
+    <div class="code-box">c1e932d531f175acede465757cc0f63b</div>
+    <p>
+        You have reason to believe that the password is 7 alpha-numerical characters.
+        Once you have figured out the password (if you have no idea how to do that, 
+        check out <a href="https://hashcat.net/wiki/doku.php?id=mask_attack">hashcat</a>),
+        submit it as <span class="code-box">flag{password}</span>
+    </p>
+    <div class="submission" hx-get="/ctf/submission.html" hx-trigger="load">
+    </div>
+</main>
