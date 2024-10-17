@@ -25,13 +25,16 @@
 <main>
     <p>
     The message below was encrypted using <a href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">DES</a> 
-    with <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)">ECB</a> mode.
-    Each character in the message was padded with 7 spaces before being encrypted.
+    with <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)">CBC</a> mode.
+    The init vector is <span class="code-box">c803ce97</span> and you happen to know that the key is 8-charcter hex. 
     </p>
+    <div class="code-box">ZiNFVk84rnqez+7XkAATN0lKgpysHUlLHnRNrp5clW4=</div>
     <p>
-    The encryption library used is loaded into this page - you can play around with it by running <span class="code-box">des(string key, string message, boolean encrypt)</span> in the console of your browsers devtools.
+    The encryption library used is loaded into this page, as last time. 
+    For instance,<span class="code-box">btoa(des("key", "message", true, 1, "random_init"))</span> will produce 
+    <span class="code-box">wNuYexNp5Y4=</span>.
+    Decrypting would be done with <span class="code-box">des("key", atob("wNuYexNp5Y4="), false, 1, "random_init")</span>. 
     </p> 
-    <div class="code-box">hU/fx9u/01Mm6TsZu0ujxRLU0OLVYZuPcY5qvAQYbYFpVnsFENXFMXGOarwEGG2BJuk7GbtLo8US1NDi1WGbj4VP38fbv9NTPQAHYqhMo54=</div>
     <div class="submission" hx-get="/ctf/submission.html" hx-trigger="load">
     </div>
 </main>
