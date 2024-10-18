@@ -26,14 +26,14 @@
     <p>
     The message below was encrypted using <a href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">DES</a> 
     with <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)">CBC</a> mode.
-    The init vector is <span class="code-box">c803ce97</span> and you happen to know that the key is 8-charcter hex. 
+    The init vector is <span class="code-box">c803ce97</span> and you happen to know that the key is a zero-padded 8-charcter number (00000000 - 99999999). 
     </p>
-    <div class="code-box">ZiNFVk84rnqez+7XkAATN0lKgpysHUlLHnRNrp5clW4=</div>
+    <div class="code-box">VmbNTu0obYhPV5XtTGLm1zDr+Dw3puEP05u6G9hNMFXN7+DYbdQ1dA==</div>
     <p>
     The encryption library used is loaded into this page, as last time. 
-    For instance,<span class="code-box">btoa(des("key", "message", true, 1, "random_init"))</span> will produce 
-    <span class="code-box">wNuYexNp5Y4=</span>.
-    Decrypting would be done with <span class="code-box">des("key", atob("wNuYexNp5Y4="), false, 1, "random_init")</span>. 
+    For instance,<span class="code-box">btoa(des("12345678", "message", true, 1, "random_init"))</span> will produce 
+    <span class="code-box">U6C2GZ0zSWg=</span>.
+    Decrypting would be done with <span class="code-box">des("12345678", atob("U6C2GZ0zSWg="), false, 1, "random_init")</span>. 
     </p> 
     <div class="submission" hx-get="/ctf/submission.html" hx-trigger="load">
     </div>
